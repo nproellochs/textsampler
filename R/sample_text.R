@@ -4,7 +4,8 @@
 #'
 #' @param n Number of texts to be sampled. \code{n} is an integer greater than 0. By default, \code{n} is set to 1.
 #' @param source Text source. A vector of characters, a \code{data.frame}, or an object of type \code{\link[tm]{Corpus}}. Alternatively, one can
-#' load a predefined dataset by specifiying a string. In the latter case, possible values are \code{imdb}, \code{amazon}, and \code{english_words}.
+#' load a predefined dataset by specifiying a string. In the latter case, possible values are \code{imdb_sentences}, \code{amazon_sentences},
+#' \code{yelp_sentences} and \code{english_words}.
 #' @param type Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.
 #' @param sub_token A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.
 #' Possible values are texts, paragraphs, sentences, words, and characters.
@@ -77,7 +78,7 @@
   if (shuffle == TRUE) {
     out <- corpus_filtered %>% dplyr::sample_n(min(nrow(corpus_filtered), n))
   } else {
-    out <- corpus_filtered %>% slice(1:min(nrow(corpus_filtered), n))
+    out <- corpus_filtered %>% dplyr::slice(1:min(nrow(corpus_filtered), n))
   }
 
   ## Select output format
@@ -97,5 +98,8 @@
                                  type = "sentences", sub_token = "words", max_length = 50, min_length = 1,
                                  word_list = NULL,
                                  shuffle = T, input = NULL, tbl = T, clean = T, ...) {
-  stop("Not yet implemented!")
+
+  data_vec <- get("content", tm_corpus)
+
+  sample_text(n, source = data_vec, type, sub_token, max_length, min_length, word_list, shuffle, input, tbl, clean, ...)
 }

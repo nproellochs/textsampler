@@ -2,7 +2,7 @@
 #'
 #' Performs text cleaning.
 #'
-#' @param text Text source. A vector of character.
+#' @param text Text source. A character vector.
 #' @return A character vector.
 #' @export
 clean_text <- function(text) {

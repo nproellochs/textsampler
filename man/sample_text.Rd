@@ -13,7 +13,8 @@ sample_text(n = 1, source = "yelp_sentences", type = "sentences",
 \item{n}{Number of texts to be sampled. \code{n} is an integer greater than 0. By default, \code{n} is set to 1.}
 
 \item{source}{Text source. A vector of characters, a \code{data.frame}, or an object of type \code{\link[tm]{Corpus}}. Alternatively, one can
-load a predefined dataset by specifiying a string. In the latter case, possible values are \code{imdb}, \code{amazon}, and \code{english_words}.}
+load a predefined dataset by specifiying a string. In the latter case, possible values are \code{imdb_sentences}, \code{amazon_sentences},
+\code{yelp_sentences} and \code{english_words}.}
 
 \item{type}{Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.}
 

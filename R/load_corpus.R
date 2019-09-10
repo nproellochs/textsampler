@@ -2,7 +2,8 @@
 #'
 #' Decides upon a text corpus.
 #'
-#' @param source A string denoting the data source. Allowed values are.
+#' @param source A string denoting the data source. Possible values are \code{imdb_sentences}, \code{amazon_sentences},
+#' \code{yelp_sentences} and \code{english_words}.
 #' @param type Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.
 #' @param sub_token A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.
 #' @return Text corpus.

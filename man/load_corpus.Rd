@@ -7,7 +7,8 @@
 load_corpus(source, type, sub_token)
 }
 \arguments{
-\item{source}{A string denoting the data source. Allowed values are.}
+\item{source}{A string denoting the data source. Possible values are \code{imdb_sentences}, \code{amazon_sentences},
+\code{yelp_sentences} and \code{english_words}.}
 
 \item{type}{Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.}
 

@@ -7,7 +7,7 @@
 clean_text(text)
 }
 \arguments{
-\item{text}{Text source. A vector of character.}
+\item{text}{Text source. A character vector.}
 }
 \value{
 A character vector.
