@@ -2,30 +2,12 @@
 % Please edit documentation in R/sample_text.R
 \name{sample_text}
 \alias{sample_text}
-\alias{sample_text.data.frame}
-\alias{sample_text.character}
-\alias{sample_text.Corpus}
 \title{Sample texts from a predefined text source}
 \usage{
 sample_text(n = 1, source = "yelp_sentences", type = "sentences",
   sub_token = "words", max_length = 50, min_length = 1,
   word_list = NULL, shuffle = T, input = NULL, tbl = T,
   clean = T, ...)
-
-\method{sample_text}{data.frame}(n = 1, source = "yelp_sentences",
-  type = "sentences", sub_token = "words", max_length = 50,
-  min_length = 1, word_list = NULL, shuffle = T, input = NULL,
-  tbl = T, clean = T, ...)
-
-\method{sample_text}{character}(n = 1, source = "yelp_sentences",
-  type = "sentences", sub_token = "words", max_length = 50,
-  min_length = 1, word_list = NULL, shuffle = T, input = NULL,
-  tbl = T, clean = T, ...)
-
-\method{sample_text}{Corpus}(n = 1, source = "yelp_sentences",
-  type = "sentences", sub_token = "words", max_length = 50,
-  min_length = 1, word_list = NULL, shuffle = T, input = NULL,
-  tbl = T, clean = T, ...)
 }
 \arguments{
 \item{n}{Number of texts to be sampled. \code{n} is an integer greater than 0. By default, \code{n} is set to 1.}
@@ -62,5 +44,5 @@ Performs text sampling. Requires input data in the form of raw texts.
 }
 \examples{
 # Sample three sentences from Yelp reviews.
-texts <- sample_text(n = 3, source = "yelp_sentences", type = "sentences")
+sample_text(n = 3, source = "yelp_sentences", type = "sentences")
 }

@@ -3,7 +3,7 @@
 \docType{data}
 \name{twenty_newsgroups}
 \alias{twenty_newsgroups}
-\title{Twenty newsgroups dataset.}
+\title{Twenty newsgroups dataset}
 \format{An object of class \code{data.frame} with 11314 rows and 2 columns.}
 \usage{
 twenty_newsgroups

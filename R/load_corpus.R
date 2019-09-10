@@ -1,4 +1,4 @@
-#' Loads text corpus.
+#' Load text corpus
 #'
 #' Decides upon a text corpus.
 #'

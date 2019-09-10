@@ -3,7 +3,7 @@
 \docType{data}
 \name{yelp_labeled}
 \alias{yelp_labeled}
-\title{Sentences from Yelp reviews.}
+\title{Sentences from Yelp reviews}
 \format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 1000 rows and 2 columns.}
 \usage{
 yelp_labeled

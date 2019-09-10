@@ -3,7 +3,7 @@
 \docType{data}
 \name{english_words}
 \alias{english_words}
-\title{English words.}
+\title{English words}
 \format{An object of class \code{character} of length 46802.}
 \usage{
 english_words

@@ -1,4 +1,4 @@
-#' GenerateS text corpus.
+#' Generate text corpus
 #'
 #' Generates and tokenizes a text corpus.
 #'

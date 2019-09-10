@@ -3,7 +3,7 @@
 \docType{data}
 \name{imdb_labeled}
 \alias{imdb_labeled}
-\title{Sentences from IMDB reviews.}
+\title{Sentences from IMDB reviews}
 \format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 748 rows and 2 columns.}
 \usage{
 imdb_labeled

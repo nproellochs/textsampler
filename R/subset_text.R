@@ -1,4 +1,4 @@
-#' Subset texts.
+#' Subset texts
 #'
 #' Subset texts.
 #'
@@ -7,7 +7,6 @@
 #' @param min_length Minimum length of the texts to be sampled. \code{min_length} is an integer greater than 0. By default, \code{min_length} is set to 1.
 #' @param word_list A word list.
 #' @return An object of class \code{data.frame}.
-#' @rdname subset_text
 #' @export
 subset_text <- function(corpus, min_length, max_length, word_list) {
 

@@ -19,9 +19,8 @@
 #' @return An object of class \code{data.frame}.
 #' @examples
 #' # Sample three sentences from Yelp reviews.
-#' texts <- sample_text(n = 3, source = "yelp_sentences", type = "sentences")
+#' sample_text(n = 3, source = "yelp_sentences", type = "sentences")
 #' @importFrom magrittr %>%
-#' @rdname sample_text
 #' @export
 "sample_text" <- function(n = 1, source = "yelp_sentences",
                           type = "sentences", sub_token = "words", max_length = 50, min_length = 1,
@@ -30,7 +29,6 @@
   UseMethod("sample_text", source)
 }
 
-#' @rdname sample_text
 #' @export
 "sample_text.data.frame" <- function(n = 1, source = "yelp_sentences",
                                      type = "sentences", sub_token = "words", max_length = 50, min_length = 1,
@@ -42,7 +40,6 @@
   sample_text(n, source = data_vec, type, sub_token, max_length, min_length, word_list, shuffle, input, tbl, clean, ...)
 }
 
-#' @rdname sample_text
 #' @export
 "sample_text.character" <- function(n = 1, source = "yelp_sentences",
                                     type = "sentences", sub_token = "words", max_length = 50, min_length = 1,
@@ -95,7 +92,6 @@
   return(out)
 }
 
-#' @rdname sample_text
 #' @export
 "sample_text.Corpus" <- function(n = 1, source = "yelp_sentences",
                                  type = "sentences", sub_token = "words", max_length = 50, min_length = 1,

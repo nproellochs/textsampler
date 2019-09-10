@@ -2,7 +2,7 @@
 % Please edit documentation in R/subset_text.R
 \name{subset_text}
 \alias{subset_text}
-\title{Subset texts.}
+\title{Subset texts}
 \usage{
 subset_text(corpus, min_length, max_length, word_list)
 }

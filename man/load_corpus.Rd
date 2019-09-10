@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_corpus.R
 \name{load_corpus}
 \alias{load_corpus}
-\title{Loads text corpus.}
+\title{Load text corpus}
 \usage{
 load_corpus(source, type, sub_token)
 }

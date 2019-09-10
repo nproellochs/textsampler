@@ -4,7 +4,6 @@
 #'
 #' @param text Text source. A vector of character.
 #' @return A character vector.
-#' @rdname clean_text
 #' @export
 clean_text <- function(text) {
   cleaned <- text

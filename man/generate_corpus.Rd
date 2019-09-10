@@ -2,7 +2,7 @@
 % Please edit documentation in R/generate_corpus.R
 \name{generate_corpus}
 \alias{generate_corpus}
-\title{GenerateS text corpus.}
+\title{Generate text corpus}
 \usage{
 generate_corpus(text, type, sub_token, label = NULL, clean = TRUE)
 }

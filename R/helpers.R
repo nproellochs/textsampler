@@ -1,4 +1,3 @@
-
 cat0 <- function(...) {
   cat(..., "\n", sep = "")
 }
