@@ -59,10 +59,9 @@ Specifically, the example samples 15 quotes from Julius Ceasar.
 library(rvest)
 read_html("https://www.brainyquote.com/authors/julius-caesar-quotes/") %>%
   html_nodes(xpath = ".//a[contains(@class, 'b-qt qt_')]") %>%
-  html_text() %>% as_tibble() %>% textsampler::sample_text(n = 15, source = ., input = "value", min_length = 1, max_length = 40,
-                                                           shuffle = F, clean = T)
-#> Warning: Calling `as_tibble()` on a vector is discouraged, because the behavior is likely to change in the future. Use `tibble::enframe(name = NULL)` instead.
-#> This warning is displayed once per session.
+  html_text() %>% tibble::enframe() %>% 
+  textsampler::sample_text(n = 15, source = ., input = "value", min_length = 1, max_length = 40,
+                           shuffle = F, clean = T)
 #> # A tibble: 15 x 6
 #>       Id Text                                   Lang  Tok    Token_Id     N
 #>    <int> <chr>                                  <chr> <chr>     <int> <int>
@@ -123,7 +122,7 @@ options:
 License
 -------
 
-**texstampler** is released under the [MIT
+**texsampler** is released under the [MIT
 License](https://opensource.org/licenses/MIT)
 
 Copyright (c) 2019 Nicolas Pröllochs

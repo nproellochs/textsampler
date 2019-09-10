@@ -64,8 +64,9 @@ The **textsampler** R-package works with tidy tools and can easily be combined w
 library(rvest)
 read_html("https://www.brainyquote.com/authors/julius-caesar-quotes/") %>%
   html_nodes(xpath = ".//a[contains(@class, 'b-qt qt_')]") %>%
-  html_text() %>% as_tibble() %>% textsampler::sample_text(n = 15, source = ., input = "value", min_length = 1, max_length = 40,
-                                                           shuffle = F, clean = T)
+  html_text() %>% tibble::enframe() %>% 
+  textsampler::sample_text(n = 15, source = ., input = "value", min_length = 1, max_length = 40,
+                           shuffle = F, clean = T)
 
 ```
 
