@@ -11,7 +11,7 @@
 #' @param max_length Maximum length of the texts to be sampled. \code{max_length} is an integer greater than 0. By default, \code{max_length} is set to 1.
 #' @param min_length Minimum length of the texts to be sampled. \code{min_length} is an integer greater than 0. By default, \code{min_length} is set to 1.
 #' @param word_list A word list.
-#' @param shuffle. If \code{true}, the text samples are returned in random order. Default is \code{true}.
+#' @param shuffle If \code{true}, the text samples are returned in random order. Default is \code{true}.
 #' @param input A string defining the column name of the raw text data in \code{source}. The value is ignored if \code{source} is not of type \code{dataframe}.
 #' @param tbl If \code{true}, the output is returned as a tibble. Default: \code{true}.
 #' @param clean If \code{true}, the texts are cleaned before text sampling. Default is \code{true}.
@@ -20,7 +20,7 @@
 #' @examples
 #' # Sample three sentences from Yelp reviews.
 #' texts <- sample_text(n = 3, source = "yelp_sentences", type = "sentences")
-#' @import dplyr
+#' @importFrom magrittr %>%
 #' @rdname sample_text
 #' @export
 "sample_text" <- function(n = 1, source = "yelp_sentences",
@@ -86,7 +86,7 @@
   ## Select output format
 
   if(tbl == TRUE) {
-    out <- out %>% as_tibble() #%>% dplyr::select(Id, Text, Tok = Tok, Sub_Tok = N)
+    out <- out %>% tibble::as_tibble() %>% dplyr::select(Id, Text, Length = N)
 
   } else {
     out <- out$Text[1:min(nrow(corpus_filtered), n)]

@@ -7,9 +7,12 @@
 load_twenty_newsgroups(type, sub_token)
 }
 \arguments{
-\item{type}{Tbd.}
+\item{type}{Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.}
 
-\item{sub_token}{Tbd.}
+\item{sub_token}{A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.}
+}
+\value{
+Text corpus.
 }
 \description{
 Loads 20 newsgroups

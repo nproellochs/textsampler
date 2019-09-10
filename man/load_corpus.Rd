@@ -9,7 +9,9 @@ load_corpus(source, type, sub_token)
 \arguments{
 \item{source}{A string denoting the data source. Allowed values are.}
 
-\item{type}{A string denoting the desired token type.}
+\item{type}{Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.}
+
+\item{sub_token}{A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.}
 }
 \value{
 Text corpus.

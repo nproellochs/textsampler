@@ -3,9 +3,8 @@
 #' Decides upon a text corpus.
 #'
 #' @param source A string denoting the data source. Allowed values are.
-#' @param type A string denoting the desired token type.
+#' @param type Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.
 #' @param sub_token A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.
-#' Possible values are texts, paragraphs, sentences, words, and characters.
 #' @return Text corpus.
 load_corpus <- function(source, type, sub_token) {
   if (source == "yelp_sentences") {
@@ -29,8 +28,9 @@ load_corpus <- function(source, type, sub_token) {
 
 #' Loads yelp sentences
 #'
-#' @param type Tbd.
-#' @param sub_token Tbd.
+#' @param type Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.
+#' @param sub_token A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.
+#' @return Text corpus.
 load_yelp_sentences <- function(type, sub_token) {
 
   data(yelp_labeled, envir=environment())
@@ -42,8 +42,9 @@ load_yelp_sentences <- function(type, sub_token) {
 
 #' Loads IMDB sentences
 #'
-#' @param type Tbd.
-#' @param sub_token Tbd.
+#' @param type Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.
+#' @param sub_token A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.
+#' @return Text corpus.
 load_imdb_sentences <- function(type, sub_token) {
 
   data(imdb_labeled, envir=environment())
@@ -55,8 +56,9 @@ load_imdb_sentences <- function(type, sub_token) {
 
 #' Loads amazon sentences
 #'
-#' @param type Tbd.
-#' @param sub_token Tbd.
+#' @param type Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.
+#' @param sub_token A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.
+#' @return Text corpus.
 load_amazon_sentences <- function(type, sub_token) {
 
   data(amazon_labeled, envir=environment())
@@ -68,8 +70,9 @@ load_amazon_sentences <- function(type, sub_token) {
 
 #' Loads 20 newsgroups
 #'
-#' @param type Tbd.
-#' @param sub_token Tbd.
+#' @param type Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.
+#' @param sub_token A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.
+#' @return Text corpus.
 load_twenty_newsgroups <- function(type, sub_token) {
 
   data(twenty_newsgroups, envir=environment())
@@ -81,8 +84,9 @@ load_twenty_newsgroups <- function(type, sub_token) {
 
 #' Loads english words
 #'
-#' @param type Tbd.
-#' @param sub_token Tbd.
+#' @param type Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.
+#' @param sub_token A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.
+#' @return Text corpus.
 load_english_words <- function(type, sub_token) {
 
   data(english_words, envir=environment())

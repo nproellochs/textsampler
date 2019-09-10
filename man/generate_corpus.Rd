@@ -12,6 +12,10 @@ generate_corpus(text, type, sub_token, label = NULL, clean = TRUE)
 \item{type}{Type of texts to be sampled. Possible values are texts, paragraphs, sentences, words, and characters.}
 
 \item{sub_token}{A string specifying the text unit for filtering texts by length via \code{min_length} and \code{max_length}.}
+
+\item{label}{A vector of labels.}
+
+\item{clean}{If \code{true}, the texts are cleaned before text sampling. Default is \code{true}.}
 }
 \value{
 Text corpus.

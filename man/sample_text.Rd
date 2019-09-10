@@ -44,6 +44,8 @@ Possible values are texts, paragraphs, sentences, words, and characters.}
 
 \item{word_list}{A word list.}
 
+\item{shuffle}{If \code{true}, the text samples are returned in random order. Default is \code{true}.}
+
 \item{input}{A string defining the column name of the raw text data in \code{source}. The value is ignored if \code{source} is not of type \code{dataframe}.}
 
 \item{tbl}{If \code{true}, the output is returned as a tibble. Default: \code{true}.}
@@ -51,8 +53,6 @@ Possible values are texts, paragraphs, sentences, words, and characters.}
 \item{clean}{If \code{true}, the texts are cleaned before text sampling. Default is \code{true}.}
 
 \item{...}{Additional parameters passed to function for e.g. preprocessing.}
-
-\item{shuffle.}{If \code{true}, the text samples are returned in random order. Default is \code{true}.}
 }
 \value{
 An object of class \code{data.frame}.
