@@ -93,8 +93,18 @@ full_text <- gutenberg_download(5314)
 
 textsampler::sample_text(n = 5, source = full_text$text[1:1000], type = "sentences", shuffle = T)
 
+```
+
+### Example: Sampling text data with specific text characteristics
+
+The **textsamplr** R-package allows one to easily sample texts with specific text characteristics. The following example samples three sentences from Amazon reviews, all of which have a maximum length of 5 words and contain the word 'great'.
+
+```{r, message=FALSE}
+sample_text(n = 5, source = "amazon_sentences", type = "sentences", 
+            max_length = 5, word_list = c("great"))
 
 ```
+
 
 ## Contributing
 

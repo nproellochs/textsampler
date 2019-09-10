@@ -22,7 +22,7 @@ subset_text <- function(corpus, min_length, max_length, word_list) {
     }
 
     pattern <- paste(word_list, collapse = "|")
-    corpus$In_word_list <- stringr::str_detect(test$Text, pattern)
+    out$In_word_list <- stringr::str_detect(out$Text, pattern)
 
     out <- out %>% dplyr::filter(In_word_list == TRUE)
   }

@@ -135,6 +135,26 @@ textsampler::sample_text(n = 5, source = full_text$text[1:1000], type = "sentenc
 #> 5   453 they set                                                          2
 ```
 
+### Example: Sampling text data with specific text characteristics
+
+The **textsamplr** R-package allows one to easily sample texts with
+specific text characteristics. The following example samples three
+sentences from Amazon reviews, all of which have a maximum length of 5
+words and contain the word ‘great’.
+
+``` r
+sample_text(n = 5, source = "amazon_sentences", type = "sentences", 
+            max_length = 5, word_list = c("great"))
+#> # A tibble: 5 x 3
+#>      Id Text                          Length
+#>   <int> <chr>                          <int>
+#> 1   557 great product for the price!.      5
+#> 2   291 great phone.                       2
+#> 3   474 great software for motorolas.      4
+#> 4   793 great phone.                       2
+#> 5   234 great sound and service.           4
+```
+
 Contributing
 ------------
 
