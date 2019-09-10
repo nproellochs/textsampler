@@ -6,7 +6,9 @@ Date: 2019-09-10
 Authors@R: c(person("Nicolas", "Proellochs", email="nicolas.proellochs@wi.jlug.de",
                     role=c("aut", "cre")))
 Maintainer: Nicolas Proellochs <nicolas.proellochs@wi.jlug.de>
-Description: The textsampler R-Package samples texts from a predefined text source.
+Description: The textsampler R-Package samples texts from a predefined text source. This implementation uses tidy data principles 
+        and works seamlessly with existing text mining packages such as tm, tidytext, and rvest. 
+        In addition, it supplies multiple built-in text datasets for hassle-free sampling of words, sentences, and texts.
 License: MIT + file LICENSE
 Depends: R (>= 3.2.0)
 Imports:

@@ -6,7 +6,13 @@ Text Sampling
 **License:** [MIT](https://opensource.org/licenses/MIT)
 
 The **textsampler** R-Package samples texts from a predefined text
-source.
+source. This implementation uses tidy data principles and works
+seamlessly with existing text mining packages such as
+[tm](https://cran.r-project.org/web/packages/tm/index.html),
+[tidytext](https://cran.r-project.org/web/packages/tidytext/index.html),
+and [rvest](https://cran.r-project.org/web/packages/rvest/index.html).
+In addition, it supplies multiple built-in text datasets for hassle-free
+sampling of words, sentences, and texts.
 
 Installation
 ------------
@@ -56,7 +62,7 @@ source (“english\_words”). The result is a dataframe containing five
 random words.
 
 ``` r
-# Sample five sentences from IMDB reviews
+# Sample five words from english_words
 sample_text(n = 5, type = "words", source = "english_words")
 #> # A tibble: 5 x 6
 #>      Id Text        Lang  Tok   Token_Id     N
@@ -71,9 +77,11 @@ sample_text(n = 5, type = "words", source = "english_words")
 ### Example: Sampling text from website
 
 The **textsampler** R-package works with tidy tools and can easily be
-combined with existing packages such as the rvest R-package. The
-following example shows how to sample texts from a website.
-Specifically, the example samples 15 famous quotes by Julius Ceasar.
+combined with existing packages such as the
+[rvest](https://cran.r-project.org/web/packages/rvest/index.html)
+R-package. The following example shows how to sample texts from a
+website. Specifically, the example samples 15 famous quotes by Julius
+Ceasar.
 
 ``` r
 library(rvest)
@@ -107,7 +115,9 @@ read_html("https://www.brainyquote.com/authors/julius-caesar-quotes/") %>%
 
 The **textsamplr** R-package can be used to sample text from a vector
 source. The following example samples five random sentences from a book
-downloaded by the **gutenbergr** R-Package.
+downloaded by the
+[gutenbergr](https://cran.r-project.org/web/packages/gutenbergr/index.html)
+R-Package.
 
 ``` r
 library(gutenbergr)
@@ -143,7 +153,7 @@ options:
 License
 -------
 
-**texsampler** is released under the [MIT
+**textsampler** is released under the [MIT
 License](https://opensource.org/licenses/MIT)
 
 Copyright (c) 2019 Nicolas Pröllochs
