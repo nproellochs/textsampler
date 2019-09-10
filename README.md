@@ -32,20 +32,40 @@ library(textsampler)
 
 ### Quick demonstration
 
-The following example shows how to sample sentences from IMDB movie
-reviews. The result is a dataframe containing five random sentences.
+The following example shows how to sample sentences from a built-in
+database of texts. The result is a dataframe containing five random
+sentences.
+
+``` r
+# Sample five sentences
+sample_text(n = 5, type = "sentences")
+#> # A tibble: 5 x 6
+#>      Id Text                                   Lang  Tok     Token_Id     N
+#>   <int> <chr>                                  <chr> <chr>      <int> <int>
+#> 1   897 the pizza selections are good.         en    senten~      912     5
+#> 2   264 good service, very clean, and inexpen~ en    senten~      270     8
+#> 3   368 would come back again if i had a sush~ en    senten~      377    13
+#> 4   569 an hour... seriously?                  en    senten~      580     3
+#> 5   904 and the drinks are weak, people!       en    senten~      920     6
+```
+
+### Example: Sampling text from built-in text source
+
+The following example shows how to sample words from a built-in text
+source (“english\_words”). The result is a dataframe containing five
+random words.
 
 ``` r
 # Sample five sentences from IMDB reviews
-sample_text(n = 5, source = "imdb_sentences", type = "sentences")
+sample_text(n = 5, type = "words", source = "english_words")
 #> # A tibble: 5 x 6
-#>      Id Text                                    Lang  Tok    Token_Id     N
-#>   <int> <chr>                                   <chr> <chr>     <int> <int>
-#> 1   647 0 there aren't death scenes like in pr~ en    sente~      911    15
-#> 2   137 1 the cinematography is simply stunnin~ en    sente~      268    21
-#> 3   174 the plot was the same as pretty much e~ en    sente~      376    12
-#> 4   372 okay, i like to consider myself a fair~ en    sente~      580    23
-#> 5   652 there is, however, some pretty good ac~ en    sente~      919    14
+#>      Id Text        Lang  Tok   Token_Id     N
+#>   <int> <chr>       <chr> <chr>    <int> <int>
+#> 1  9440 cuisin      en    words     9440     1
+#> 2 42046 trojan      en    words    42046     1
+#> 3 44211 upper       en    words    44211     1
+#> 4 30925 prediagnost en    words    30925     1
+#> 5 29442 peter       en    words    29442     1
 ```
 
 ### Example: Sampling text from website
@@ -53,15 +73,16 @@ sample_text(n = 5, source = "imdb_sentences", type = "sentences")
 The **textsampler** R-package works with tidy tools and can easily be
 combined with existing packages such as the rvest R-package. The
 following example shows how to sample texts from a website.
-Specifically, the example samples 15 quotes from Julius Ceasar.
+Specifically, the example samples 15 famous quotes by Julius Ceasar.
 
 ``` r
 library(rvest)
 read_html("https://www.brainyquote.com/authors/julius-caesar-quotes/") %>%
   html_nodes(xpath = ".//a[contains(@class, 'b-qt qt_')]") %>%
-  html_text() %>% tibble::enframe() %>% 
-  textsampler::sample_text(n = 15, source = ., input = "value", min_length = 1, max_length = 40,
-                           shuffle = F, clean = T)
+  html_text() %>% 
+  enframe() %>% 
+  sample_text(n = 15, source = ., input = "value", min_length = 1, max_length = 40,
+              shuffle = F, clean = T)
 #> # A tibble: 15 x 6
 #>       Id Text                                   Lang  Tok    Token_Id     N
 #>    <int> <chr>                                  <chr> <chr>     <int> <int>
@@ -94,13 +115,13 @@ full_text <- gutenberg_download(5314)
 
 textsampler::sample_text(n = 5, source = full_text$text[1:1000], type = "sentences", shuffle = T)
 #> # A tibble: 5 x 6
-#>      Id Text                                   Lang  Tok     Token_Id     N
-#>   <int> <chr>                                  <chr> <chr>      <int> <int>
-#> 1   276 "old water-splasher, is it thou?\""    en    senten~      273     6
-#> 2   899 then the gold was brought up and the ~ en    senten~     1214    12
-#> 3   944 truly men are like that.               en    senten~     1276     5
-#> 4   714 just come back to me early in          en    senten~      892     7
-#> 5   688 "these?\""                             en    senten~      849     1
+#>      Id Text                                    Lang  Tok    Token_Id     N
+#>   <int> <chr>                                   <chr> <chr>     <int> <int>
+#> 1    90 59 frederick and catherine (der friede~ en    sente~       84     9
+#> 2   281 "thou wilt have, dear frog,\" said she~ en    sente~      279    13
+#> 3   245 legend 4 poverty and humility lead to ~ en    sente~      239    14
+#> 4   736 "\"one of this kind has never come my ~ en    sente~      927    10
+#> 5   453 they set                                en    sente~      518     2
 ```
 
 Contributing

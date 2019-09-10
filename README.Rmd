@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 set.seed(0)
 library(dplyr)
 library(tidytext)
+library(tibble)
 ```
 
 # Text Sampling
@@ -48,25 +49,38 @@ library(textsampler)
 
 ### Quick demonstration
 
-The following example shows how to sample sentences from IMDB movie reviews. The result is a dataframe containing five random sentences.
+The following example shows how to sample sentences from a built-in database of texts. The result is a dataframe containing five random sentences.
 
 ```{r, message=FALSE}
-# Sample five sentences from IMDB reviews
-sample_text(n = 5, source = "imdb_sentences", type = "sentences")
+# Sample five sentences
+sample_text(n = 5, type = "sentences")
 
 ```
 
+
+### Example: Sampling text from built-in text source
+
+The following example shows how to sample words from a built-in text source ("english_words"). The result is a dataframe containing five random words.
+
+```{r, message=FALSE}
+# Sample five sentences from IMDB reviews
+sample_text(n = 5, type = "words", source = "english_words")
+
+```
+
+
 ### Example: Sampling text from website
 
-The **textsampler** R-package works with tidy tools and can easily be combined with existing packages such as the rvest R-package. The following example shows how to sample texts from a website. Specifically, the example samples 15 quotes from Julius Ceasar.
+The **textsampler** R-package works with tidy tools and can easily be combined with existing packages such as the rvest R-package. The following example shows how to sample texts from a website. Specifically, the example samples 15 famous quotes by Julius Ceasar.
 
 ```{r, message=FALSE}
 library(rvest)
 read_html("https://www.brainyquote.com/authors/julius-caesar-quotes/") %>%
   html_nodes(xpath = ".//a[contains(@class, 'b-qt qt_')]") %>%
-  html_text() %>% tibble::enframe() %>% 
-  textsampler::sample_text(n = 15, source = ., input = "value", min_length = 1, max_length = 40,
-                           shuffle = F, clean = T)
+  html_text() %>% 
+  enframe() %>% 
+  sample_text(n = 15, source = ., input = "value", min_length = 1, max_length = 40,
+              shuffle = F, clean = T)
 
 ```
 
