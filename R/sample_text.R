@@ -86,7 +86,7 @@
   ## Select output format
 
   if(tbl == TRUE) {
-    out <- out %>% tibble::as_tibble() %>% dplyr::select(Id, Text, Length = N)
+    out <- out %>% dplyr::as_tibble() %>% dplyr::select(Id, Text, Length = N)
 
   } else {
     out <- out$Text[1:min(nrow(corpus_filtered), n)]

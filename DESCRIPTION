@@ -15,6 +15,7 @@ Imports:
     tidytext,
     dplyr,
     magrittr,
+    tibble,
     tm,
     textclean,
     stringr

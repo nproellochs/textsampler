@@ -46,14 +46,14 @@ sentences.
 ``` r
 # Sample five sentences
 sample_text(n = 5, type = "sentences")
-#> # A tibble: 5 x 6
-#>      Id Text                                   Lang  Tok     Token_Id     N
-#>   <int> <chr>                                  <chr> <chr>      <int> <int>
-#> 1   897 the pizza selections are good.         en    senten~      912     5
-#> 2   264 good service, very clean, and inexpen~ en    senten~      270     8
-#> 3   368 would come back again if i had a sush~ en    senten~      377    13
-#> 4   569 an hour... seriously?                  en    senten~      580     3
-#> 5   904 and the drinks are weak, people!       en    senten~      920     6
+#> # A tibble: 5 x 3
+#>      Id Text                                                         Length
+#>   <int> <chr>                                                         <int>
+#> 1   897 the pizza selections are good.                                    5
+#> 2   264 good service, very clean, and inexpensive, to boot!               8
+#> 3   368 would come back again if i had a sushi craving while in veg~     13
+#> 4   569 an hour... seriously?                                             3
+#> 5   904 and the drinks are weak, people!                                  6
 ```
 
 ### Example: Sampling text from built-in text source
@@ -65,14 +65,14 @@ random words.
 ``` r
 # Sample five words from english_words
 sample_text(n = 5, type = "words", source = "english_words")
-#> # A tibble: 5 x 6
-#>      Id Text        Lang  Tok   Token_Id     N
-#>   <int> <chr>       <chr> <chr>    <int> <int>
-#> 1  9440 cuisin      en    words     9440     1
-#> 2 42046 trojan      en    words    42046     1
-#> 3 44211 upper       en    words    44211     1
-#> 4 30925 prediagnost en    words    30925     1
-#> 5 29442 peter       en    words    29442     1
+#> # A tibble: 5 x 3
+#>      Id Text        Length
+#>   <int> <chr>        <int>
+#> 1  9440 cuisin           1
+#> 2 42046 trojan           1
+#> 3 44211 upper            1
+#> 4 30925 prediagnost      1
+#> 5 29442 peter            1
 ```
 
 ### Example: Sampling text from website
@@ -92,24 +92,24 @@ read_html("https://www.brainyquote.com/authors/julius-caesar-quotes/") %>%
   enframe() %>% 
   sample_text(n = 15, source = ., input = "value", min_length = 1, max_length = 40,
               shuffle = F, clean = T)
-#> # A tibble: 15 x 6
-#>       Id Text                                   Lang  Tok    Token_Id     N
-#>    <int> <chr>                                  <chr> <chr>     <int> <int>
-#>  1     1 experience is the teacher of all thin~ en    sente~        1     7
-#>  2     2 it is easier to find men who will vol~ en    sente~        2    23
-#>  3     3 it was the wont of the immortal gods ~ en    sente~        3    38
-#>  4     4 cowards die many times before their a~ en    sente~        4     8
-#>  5     5 if you must break the law, do it to s~ en    sente~        5    17
-#>  6     7 i came, i saw, i conquered.            en    sente~        7     6
-#>  7     8 it is not these well-fed long-haired ~ en    sente~        8    19
-#>  8     9 i have lived long enough both in year~ en    sente~        9    11
-#>  9    10 i had rather be first in a village th~ en    sente~       10    12
-#> 10    11 i love the name of honor, more than i~ en    sente~       11    11
-#> 11    12 no one is so brave that he is not dis~ en    sente~       12    13
-#> 12    13 men willingly believe what they wish.  en    sente~       13     6
-#> 13    14 i have lived long enough to satisfy b~ en    sente~       14    11
-#> 14    15 i have always reckoned the dignity of~ en    sente~       15    16
-#> 15    16 as a rule, men worry more about what ~ en    sente~       16    16
+#> # A tibble: 15 x 3
+#>       Id Text                                                        Length
+#>    <int> <chr>                                                        <int>
+#>  1     1 experience is the teacher of all things.                         7
+#>  2     2 it is easier to find men who will volunteer to die, than t~     23
+#>  3     3 it was the wont of the immortal gods sometimes to grant pr~     38
+#>  4     4 cowards die many times before their actual deaths.               8
+#>  5     5 if you must break the law, do it to seize power: in all ot~     17
+#>  6     7 i came, i saw, i conquered.                                      6
+#>  7     8 it is not these well-fed long-haired men that i fear, but ~     19
+#>  8     9 i have lived long enough both in years and in accomplishme~     11
+#>  9    10 i had rather be first in a village than second at rome.         12
+#> 10    11 i love the name of honor, more than i fear death.               11
+#> 11    12 no one is so brave that he is not disturbed by something u~     13
+#> 12    13 men willingly believe what they wish.                            6
+#> 13    14 i have lived long enough to satisfy both nature and glory.      11
+#> 14    15 i have always reckoned the dignity of the republic of firs~     16
+#> 15    16 as a rule, men worry more about what they can't see than a~     16
 ```
 
 ### Example: Sampling text from vector source
@@ -125,14 +125,14 @@ library(gutenbergr)
 full_text <- gutenberg_download(5314)
 
 textsampler::sample_text(n = 5, source = full_text$text[1:1000], type = "sentences", shuffle = T)
-#> # A tibble: 5 x 6
-#>      Id Text                                    Lang  Tok    Token_Id     N
-#>   <int> <chr>                                   <chr> <chr>     <int> <int>
-#> 1    90 59 frederick and catherine (der friede~ en    sente~       84     9
-#> 2   281 "thou wilt have, dear frog,\" said she~ en    sente~      279    13
-#> 3   245 legend 4 poverty and humility lead to ~ en    sente~      239    14
-#> 4   736 "\"one of this kind has never come my ~ en    sente~      927    10
-#> 5   453 they set                                en    sente~      518     2
+#> # A tibble: 5 x 3
+#>      Id Text                                                         Length
+#>   <int> <chr>                                                         <int>
+#> 1    90 59 frederick and catherine (der frieder und das catherliesc~      9
+#> 2   281 "thou wilt have, dear frog,\" said she--\"my clothes, my pe~     13
+#> 3   245 legend 4 poverty and humility lead to heaven (armut und dem~     14
+#> 4   736 "\"one of this kind has never come my way before.\""             10
+#> 5   453 they set                                                          2
 ```
 
 Contributing
