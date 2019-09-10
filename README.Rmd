@@ -1,0 +1,98 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+```{r, include=FALSE}
+set.seed(0)
+library(dplyr)
+library(tidytext)
+```
+
+# Text Sampling
+
+**Author:** [Nicolas Pröllochs](https://nproellochs.com)<br/>
+**License:** [MIT](https://opensource.org/licenses/MIT)
+
+The **textsampler** R-Package samples texts from a predefined text source. 
+
+## Installation
+
+You can easily install the latest version of **textsampler** with
+
+```{r,eval=FALSE}
+# Install the development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("nproellochs/textsampler")
+```
+
+
+## Usage
+
+This section shows the basic functionality of how to sample text from a predefined text source. First, load the corresponding package **textsampler**.
+
+```{r, message=FALSE}
+library(textsampler)
+```
+
+### Quick demonstration
+
+The following example shows how to sample sentences from IMDB movie reviews. The result is a dataframe containing five random sentences.
+
+```{r, message=FALSE}
+# Sample five sentences from IMDB reviews
+sample_text(n = 5, source = "imdb_sentences", type = "sentences")
+
+```
+
+### Example: Sampling text from website
+
+The **textsampler** R-package works with tidy tools and can easily be combined with existing packages such as the rvest R-package. The following example shows how to sample texts from a website. Specifically, the example samples 15 quotes from Julius Ceasar.
+
+```{r, message=FALSE}
+library(rvest)
+read_html("https://www.brainyquote.com/authors/julius-caesar-quotes/") %>%
+  html_nodes(xpath = ".//a[contains(@class, 'b-qt qt_')]") %>%
+  html_text() %>% as_tibble() %>% textsampler::sample_text(n = 15, source = ., input = "value", min_length = 1, max_length = 40,
+                                                           shuffle = F, clean = T)
+
+```
+
+### Example: Sampling text from vector source
+
+The **textsamplr** R-package can be used to sample text from a vector source. The following example samples five random sentences from a book downloaded by the **gutenbergr** R-Package.
+
+```{r, message=FALSE}
+library(gutenbergr)
+full_text <- gutenberg_download(5314)
+
+textsampler::sample_text(n = 5, source = full_text$text[1:1000], type = "sentences", shuffle = T)
+
+
+```
+
+## Contributing
+
+If you experience any difficulties with the package, or have suggestions, or want to contribute directly, you have the following options:
+
+* Contact the [maintainer](mailto:nicolas.proellochs@wi.jlug.de) by email.
+* Issues and bug reports: [File a GitHub issue](https://github.com/nproellochs/textsampler/issues).
+* Fork the source code, modify, and issue a [pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) through the [project GitHub page](https://github.com/nproellochs/textsampler).
+
+
+## License 
+
+**texsampler** is released under the [MIT License](https://opensource.org/licenses/MIT)
+
+Copyright (c) 2019 Nicolas Pröllochs
