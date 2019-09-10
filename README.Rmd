@@ -30,7 +30,7 @@ The **textsampler** R-Package samples texts from a predefined text source. This 
 
 ## Installation
 
-You can easily install the latest version of **textsampler** with
+You can easily install the latest development version of **textsampler** via GitHub.
 
 ```{r,eval=FALSE}
 # Install the development version from GitHub:
@@ -48,7 +48,7 @@ library(textsampler)
 
 ### Quick demonstration
 
-The following example shows how to sample sentences from a built-in database of texts. The result is a dataframe containing five random sentences.
+The following example shows how to sample sentences from a built-in database of texts. The result is a data frame containing five random sentences.
 
 ```{r, message=FALSE}
 # Sample five sentences
@@ -59,7 +59,7 @@ sample_text(n = 5, type = "sentences")
 
 ### Example: Sampling text from built-in text source
 
-The following example shows how to sample words from a built-in text source ("english_words"). The result is a dataframe containing five random words.
+The following example shows how to sample words from a built-in text source ("english_words"). The result is a data frame containing five random words.
 
 ```{r, message=FALSE}
 # Sample five words from english_words

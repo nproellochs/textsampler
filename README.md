@@ -17,7 +17,8 @@ sampling of words, sentences, and texts.
 Installation
 ------------
 
-You can easily install the latest version of **textsampler** with
+You can easily install the latest development version of **textsampler**
+via GitHub.
 
 ``` r
 # Install the development version from GitHub:
@@ -39,7 +40,7 @@ library(textsampler)
 ### Quick demonstration
 
 The following example shows how to sample sentences from a built-in
-database of texts. The result is a dataframe containing five random
+database of texts. The result is a data frame containing five random
 sentences.
 
 ``` r
@@ -58,7 +59,7 @@ sample_text(n = 5, type = "sentences")
 ### Example: Sampling text from built-in text source
 
 The following example shows how to sample words from a built-in text
-source (“english\_words”). The result is a dataframe containing five
+source (“english\_words”). The result is a data frame containing five
 random words.
 
 ``` r
