@@ -56,6 +56,18 @@
   if (!(is.character(type) && is.character(sub_token))) {
     stop("Arguments 'type' and 'sub_token' must be of type 'character'.")
   }
+  if (!(sub_token %in% c("words", "sentences", "paragraphs", "lines", "characters"))) {
+    stop("Argument 'sub_token' is invalid.")
+  }
+  if (!(is.null(word_list) | is.character(word_list))) {
+    stop("Argument 'word_list' must be of type 'character'.")
+  }
+  if (!(is.null(input) | is.character(input))) {
+    stop("Argument 'input' must be of type 'character'.")
+  }
+  if (!(is.logical(shuffle) & is.logical(tbl) & is.logical(clean))) {
+    stop("Arguments 'shuffle', 'tbl', and 'clean' must be of type 'logical'.")
+  }
 
   ## Load corpus
 
