@@ -11,8 +11,8 @@ seamlessly with existing text mining packages such as
 [tm](https://cran.r-project.org/web/packages/tm/index.html),
 [tidytext](https://cran.r-project.org/web/packages/tidytext/index.html),
 and [rvest](https://cran.r-project.org/web/packages/rvest/index.html).
-In addition, it supplies multiple built-in text datasets for hassle-free
-sampling of words, sentences, and texts.
+In addition, it supplies multiple built-in text datasets for a
+hassle-free sampling of words, sentences, and texts.
 
 Installation
 ------------
@@ -137,10 +137,10 @@ textsampler::sample_text(n = 5, source = full_text$text[1:1000], type = "sentenc
 
 ### Example: Sampling text data with specific text characteristics
 
-The **textsamplr** R-package allows one to easily sample texts with
-specific text characteristics. The following example samples three
-sentences from Amazon reviews, all of which have a maximum length of 5
-words and contain the word ‘great’.
+The **textsamplr** R-package allows one to sample texts with specific
+text characteristics. The following example samples three sentences from
+Amazon reviews, all of which have a maximum length of 5 words and
+contain the word ‘great’.
 
 ``` r
 sample_text(n = 5, source = "amazon_sentences", type = "sentences", 
